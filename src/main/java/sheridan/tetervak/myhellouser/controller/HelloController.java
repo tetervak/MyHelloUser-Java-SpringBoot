@@ -2,6 +2,7 @@ package sheridan.tetervak.myhellouser.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import sheridan.tetervak.myhellouser.model.AppUser;
 
@@ -9,9 +10,17 @@ import sheridan.tetervak.myhellouser.model.AppUser;
 public class HelloController {
 
     @GetMapping("/")
-    public ModelAndView output(){
+    public String input(){
+        return "Input";
+    }
 
-        AppUser appUser = new AppUser("Bart" ,"Simpson");
+    @GetMapping("/output")
+    public ModelAndView output(
+            @RequestParam String firstName,
+            @RequestParam String lastName
+    ){
+
+        AppUser appUser = new AppUser(firstName ,lastName);
 
         return new ModelAndView("Output", "appUser", appUser);
     }

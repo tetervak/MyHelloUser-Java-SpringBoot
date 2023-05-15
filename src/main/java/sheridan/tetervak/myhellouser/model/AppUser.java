@@ -1,9 +1,13 @@
 package sheridan.tetervak.myhellouser.model;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class AppUser {
 
+    @NotBlank
     private String firstName = "";
 
+    @NotBlank
     private String lastName = "";
 
     public AppUser() {

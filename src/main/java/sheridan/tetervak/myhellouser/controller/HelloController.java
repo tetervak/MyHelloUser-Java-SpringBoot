@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import sheridan.tetervak.myhellouser.model.AppUser;
@@ -21,11 +22,10 @@ public class HelloController {
 
     @GetMapping("/output")
     public ModelAndView output(
-            @RequestParam String firstName,
-            @RequestParam String lastName
+           @ModelAttribute AppUser appUser
     ){
         log.trace("output() is called");
-        AppUser appUser = new AppUser(firstName ,lastName);
+        //AppUser appUser = new AppUser(firstName ,lastName);
 
         log.debug("appUser=" + appUser);
 

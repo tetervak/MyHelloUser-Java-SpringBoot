@@ -33,4 +33,12 @@ public class AppUser {
     public String getName(){
         return firstName + " " + lastName;
     }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }
